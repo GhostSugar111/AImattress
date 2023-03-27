@@ -1,0 +1,86 @@
+<view>
+  <view class="time-section">
+    {{myTime}}
+  </view>
+  <view class="temp-section">
+    室温：26°C
+  </view>
+
+  <view class="Time" wx:if="{{isShowTime}}">
+    <!-- <scroll-view class="picker-wrapper" scroll-y style="height: 300rpx;">
+      <picker mode="time" bindchange="onTimeChange">
+        <view class="picker-item">{{selectedTime}}</view>
+      </picker>
+    </scroll-view> -->
+    <!-- <view class="section">
+      <view class="section__title">时间选择器</view>
+      <picker mode="time" value="{{selectedTime}}" start="09:01" end="21:01" bindchange="onTimeChange">
+        <view class="picker">
+          自动触发时长(min): {{selectedTime}}
+        </view>
+      </picker>
+    </view> -->
+    <view class="section" style="display:flex; align-items:center;">自动触发时长(min):
+      <picker mode="time" value="{{selectedTime}}" start="00:00" end="23:59" bindchange="onTimeChange" style="background-color:#f7f7f7;border:1px solid #ccc;padding:10rpx;border-radius:5rpx;font-size:20rpx;">
+        <view class="picker" style="color:#333;font-size:34rpx;">
+          {{selectedTime}}
+        </view>
+      </picker>
+      <button type="primary" class="confirm-button" bindtap="onConfirm" style="width: 100px;height: 30px;font-size: 12px;">确定</button>
+    </view>
+
+  </view>
+
+  <web-view wx:if="{{isShowPopup}}" id="my-web-view" src="https://app.modaiyun.com/embedded/1638168830935875584?viewport=false&autoplay=true&autorotate=false&hideTools=true&showBIM=false&showBBoxSize=false&showKooRender=false&showSettings=false&c_at0=-0.000028033950002281927&c_at1=-0.10485801845788956&c_at2=2.9346423149108887&c_theta=7.853981633974483&c_phi=0&c_dis=11.07299704405737">
+    <view class="web-view-header">
+      <!-- 返回按钮 -->
+      <button class="back-button" bindtap="goBack">返回</button>
+    </view>
+  </web-view>
+  <view style="float:left ;width:70%; ;padding-bottom: 70%; position:relative">
+    <view style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+      <image src="../../images/pic1.png" style="width: 100%;" mode="" bindtap="gotoPage" />
+    </view>
+  </view>
+  <view style="float:left">
+    <view style="background-color: rgb(247, 198, 39); color: #FFFFFF; padding: 10px; border-radius: 5px;margin-bottom: 10px;">
+      检测到a[2][3]骶尾部压力异常
+    </view>
+
+    <!-- <view>检测点：</view>
+    <view>温度：</view>
+    <view>压力：</view>
+    <view>受压部位：</view> -->
+    <view class="btns" style="margin-bottom: 10px;">调整措施：
+      <button type="primary" bindtap="onSetTime" style="width: 100px;margin-right:2px;height: 30px;font-size: 12px;">气囊放气</button>
+      <button type="primary" bindtap="onSetTime" style="width: 100px;margin-right:2px;height: 30px;font-size: 12px;">气囊充气</button>
+      <button type="warn" bindtap="onSetTime" style="width: 80px;height: 30px;font-size: 12px;">翻身</button>
+    </view>
+    <!-- <text>压力变化：</text> -->
+    <!-- <image src="../../images/图片2.png" height="100px" width="200px"></image> -->
+
+    <!-- <view>姓名：王小明</view>
+    <view>年龄：32</view>
+    <view>身高：174cm</view>
+    <view>体重：62kg</view> -->
+    <view class="user-info">
+      <view class="user-info__item">
+        <text class="user-info__label">姓名：</text>
+        <text class="user-info__value">王小明</text>
+      </view>
+      <view class="user-info__item">
+        <text class="user-info__label">年龄：</text>
+        <text class="user-info__value">32</text>
+      </view>
+      <view class="user-info__item">
+        <text class="user-info__label">身高：</text>
+        <text class="user-info__value">174cm</text>
+      </view>
+      <view class="user-info__item">
+        <text class="user-info__label">体重：</text>
+        <text class="user-info__value">62kg</text>
+      </view>
+    </view>
+
+  </view>
+</view>
